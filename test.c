@@ -4,12 +4,13 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-    int sum = 0;
-    for (int i = 1; i < argc; i++) {
-        // atoi converts a string to an int
-        // For example atoi("123") would return the int 123.
-        sum = sum + atoi(argv[i]);
+    printf("There are %d command line arguments\n", argc);
+   
+    // argv[0] is always the program name
+    printf("This program name is %s\n", argv[0]);
+    // print out all arguments in the argv array
+    for (int i = 0; i < argc; i++) {
+        printf("Argument at index %d is %s\n", i, argv[i]);
     }
-    printf("%d is the sum of all command line args\n", sum);
     return 0;
 }
