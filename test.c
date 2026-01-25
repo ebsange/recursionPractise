@@ -1,31 +1,15 @@
-// Lecture example for COMP1511/1911 Week 4
-// Some simple examples demonstrating how strings work in C
-
+// Week 5 lecture
+// showing the use of atoi
 #include <stdio.h>
-#include <ctype.h>
+#include <stdlib.h>
 
-#define MAX 20
-
-void capitalise(char s[]);
-
-
-int main(void) {
-    char movie[MAX];
-    printf("Type in your favourite movies: ");
-    while (fgets(movie, MAX, stdin) != NULL){
-        printf("%s\n",movie);
-        capitalise(movie);
-        printf("%s\n",movie);
+int main(int argc, char *argv[]) {
+    int sum = 0;
+    for (int i = 1; i < argc; i++) {
+        // atoi converts a string to an int
+        // For example atoi("123") would return the int 123.
+        sum = sum + atoi(argv[i]);
     }
-    
+    printf("%d is the sum of all command line args\n", sum);
     return 0;
-}
-
-// convert every lowercase character in the given string, s to uppercase
-void capitalise(char s[]) {
-    int i = 0;
-    while (s[i] != '\0') {
-        s[i] = toupper(s[i]);
-        i++;
-    }
 }
